@@ -1,19 +1,21 @@
-import Pharmacy from './components/Pharmacy';
+import Navbar from './components/Navbar';
 import Tracker from './components/Tracker';
+import Home from './components/Home'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Cups from './components/Cups';
 
 function App() {
 
   return (
     <>
-    <BrowserRouter>
-<Routes>
-  <Route path='/' element={<Tracker/>}></Route>
-  <Route path='/pharmacy' element={<Pharmacy/>}></Route>
-</Routes>
-    
-    
-    </BrowserRouter>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/tracker' element={<Tracker />}></Route>
+          <Route path='/cups' element={<Cups/>}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

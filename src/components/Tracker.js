@@ -12,8 +12,10 @@ function Tracker() {
   };
   return (
     <>
+    <div align='center' style={{margin:'100px'}}>
     <h1>Menstrual Cycle Tracker</h1>
       <CycleCalendar addCycle={addCycle} /> 
+    </div>
     </>
   )
 }
