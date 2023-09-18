@@ -306,3 +306,13 @@ form{
     text-align: center;
     padding: 10px;
 }
+.tracker{
+    /* background-image: url(/public/images/Tracker.jpg);
+    margin-top:100px;
+    height: 100vh;
+    width: 80vw;
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* background-position: center 100px; */
+     
+}

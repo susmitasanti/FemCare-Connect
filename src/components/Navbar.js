@@ -14,14 +14,14 @@ function Navbar() {
                         <Link to="#">Categories</Link>
                         <ul className="dropdown-category">
                             <li><Link to="#">Medicine</Link></li>
-                            <li><Link to="/cups">Menstrual Cups</Link></li>
+                            <li><Link to="/MenstrualCups">Menstrual Cups</Link></li>
                             <li><Link to="#">Sanitary Napkins</Link></li>
                             <li><Link to="">Tampons</Link></li>
                         </ul>
                         
 
                     </li>
-                    <li><Link to="/tracker">Tracker</Link></li>
+                    <li><Link to="/Tracker">Tracker</Link></li>
                     {/* <li><Link to="">Discover</Link></li> */}
                     {/* <li><Link to="">About Us</Link></li>
                     <li><Link to="">Contact Us</Link></li> */}
