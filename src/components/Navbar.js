@@ -9,7 +9,7 @@ function Navbar() {
             <h2><span><i className="fa-solid fa-prescription-bottle-medical"></i></span>FemCare</h2>
             <div className="d-flex ">
                 <ul className="d-flex nav-links align-items-center">
-                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/Home">Home</Link></li>
                     <li className="dropdown">
                         <Link to="#">Categories</Link>
                         <ul className="dropdown-category">

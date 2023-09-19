@@ -1,51 +1,66 @@
-// CycleCalendar.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 function CycleCalendar(props) {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [selectedDates, setSelectedDates] = useState([]);
+  const [dateRanges, setDateRanges] = useState([
+    { start: new Date("2023-09-10"), end: new Date("2023-09-15") },
+    { start: new Date("2023-09-20"), end: new Date("2023-09-25") },
+    { start: new Date("2023-08-30"), end: new Date("2023-09-02") }
+  ]);
 
-  // Handle date selection
-  const handleDateChange = (newDate) => {
-    if (startDate === null) {
-      // First click sets the start date
-      setStartDate(newDate);
-    } else {
-      // Second click sets the end date and calculates duration
-      setEndDate(newDate);
+  const customizeTileContent = (dateRanges, date) => {
+    // Check if the current date is within any of the date ranges
+    for (const dateRange of dateRanges) {
+      const startDate = dateRange.start;
+      const endDate = dateRange.end;
 
-      // Calculate duration (in days)
-      const durationInMilliseconds = newDate - startDate;
-      const durationInDays = Math.ceil(durationInMilliseconds / (1000 * 60 * 60 * 24));
-
-      // Create a cycle object with start date, end date, and duration
-      const cycle = { startDate, endDate: newDate, duration: durationInDays };
-
-      // Log the cycle information to the console
-      console.log("Menstrual Cycle:", cycle);
-
-      // Call the addCycle function with start date and duration
-      props.addCycle(cycle);
-
-      // Reset the selection
-      setStartDate(null);
-      setEndDate(null);
+      if (date >= startDate && date <= endDate) {
+        // Apply a custom CSS class to highlight the date
+        return <div className="highlighted-date">{date.getDate()}</div>;
+      }
     }
+
+    return null; // Return null for dates that don't need customization
   };
 
-  // Function to highlight the selected date range
-  const tileContent = ({ date, view }) => {
-    if (startDate && endDate && view === 'month' && date >= startDate && date <= endDate) {
-      return <div className="selected-date-range">{date.getDate()}</div>;
-    }
+  useEffect(() => {
+    // This code will run whenever the dateRanges state changes
+    console.log("dateRanges has changed:", dateRanges);
+
+  }, [dateRanges]);
+
+  const onDateChange = (newDates) => {
+    const formattedDates = newDates.map((date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const day = String(date.getDate()).padStart(2, '0');
+      
+      return `${year}-${month}-${day}`;
+    });
+  
+    setSelectedDates(newDates);
+
+    // Concatenate the newly selected date range to the existing dateRanges
+    const newDateRange = {
+      start: new Date(formattedDates[0]),
+      end: new Date(formattedDates[1]),
+    };
+    const updatedDateRanges = dateRanges.concat(newDateRange);
+
+    // Update the dateRanges state with the new array
+    setDateRanges(updatedDateRanges);
   };
 
   return (
     <div>
-      <h2>Menstrual Cycle Calendar</h2>
-      <Calendar onChange={handleDateChange} value={startDate || endDate} tileContent={tileContent} />
+      <Calendar
+        onChange={onDateChange}
+        value={selectedDates}
+        selectRange={true}
+        tileContent={({ date }) => customizeTileContent(dateRanges, date)} // Apply the custom tile content function
+      />
     </div>
   );
 }
