@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext} from 'react'
 import { Link } from 'react-router-dom'
 import '../css/style.css'
 import '../css/utilities.css'
@@ -6,7 +6,7 @@ import WhyUs from './WhyUs'
 import ProductContext from '../context/Product/ProductContext'
 function Pharmacy() {
     const context = useContext(ProductContext)
-    const { setSrc, setProdName, setProdDesc, setProdCost } = context
+    const { setSrc, setProdName, setProdDesc, setProdCost, login} = context
     const OfferedProducts = [
         {
             src: "https://img.icons8.com/ios-filled/50/pills.png",
@@ -106,7 +106,7 @@ function Pharmacy() {
                     {OfferedProducts.map((product) => {
                         return <div className="d-flex d-col" style={{ justifyContent: 'center', alignItems: 'center' }}>
 
-                            <Link to="" style={{ textDecoration: 'none' }} target="_blank">
+                            <Link to="/Home" style={{ textDecoration: 'none' }} target="_blank">
                                 <img width="64" height="64" src={product.src} alt="pills" />
 
                                 <h4>{product.name}</h4></Link>
@@ -127,7 +127,7 @@ function Pharmacy() {
                                     <h5 className="card-title">{product.name}</h5>
                                     <p className="card-text">{product.desc}<br />{product.cost}</p>
                                     <Link
-                                        to="/Shipping"
+                                        to={(login===true)?"/Shipping":"/login"}
                                         className="btn btn-primary"
                                         onClick={() => {
                                             setSrc(product.src);

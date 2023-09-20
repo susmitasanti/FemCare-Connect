@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import ProductContext from '../context/Product/ProductContext'
 
 function Login() {
+    const context=useContext(ProductContext)
+    const{login, setLogin}=context
     const [credentials, setCredentials]=useState({username:"", role:"", password:""})
     const navigate=useNavigate()
     const onChange = (event) => {
@@ -26,6 +30,7 @@ function Login() {
         if (json.success) {
             localStorage.setItem('token', json.authtoken)
             // props.showAlert("success", "Successfully Logged In!!")
+            setLogin(true)
             navigate("/Home")
 
         }
