@@ -4,6 +4,19 @@ const Cycle = require('../models/Cycle');
 const fetchuser = require("../middleware/fetchUser")
 const { validationResult, body } = require('express-validator');
 
+router.get('/fetchallCycles', fetchuser, async (req, res) => {
+    try {
+        const cycles = await Cycle.find({ user: req.user });
+        if (cycles) {
+            res.json(cycles)
+        }
+    } catch (error) {
+        console.error(error.message)
+        res.status(400).send("Internal Server Error.");
+    }
+}
+);
+
 router.post('/addCycle', [
     body('startDate').notEmpty(),
     body('endDate').notEmpty()
@@ -29,4 +42,4 @@ router.post('/addCycle', [
 }
 );
 
-module.exports=router
+module.exports = router
