@@ -1,68 +1,30 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Calendar from 'react-calendar';
+import CycleContext from '../context/Cycle/CycleContext';
 import 'react-calendar/dist/Calendar.css';
 
 function CycleCalendar(props) {
-  const [selectedDates, setSelectedDates] = useState([]);
-  const [dateRanges, setDateRanges] = useState([]);
-    // { startDate: "2023-09-10", endDate: "2023-09-15" },
-    // { startDate: "2023-09-20", endDate: "2023-09-25" },
-    // { startDate: "2023-08-30", endDate: "2023-09-02" }
-  
+  const context = useContext(CycleContext)
+  const { getCycles, addCycle, selectedDates, setSelectedDates, dateRanges, setDateRanges } = context
 
-  const getCycles = async () => {
-    const url = "http://localhost:3001/api/fetchallCycles"
-    const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('token')
-        },
-    });
-    const json = await response.json();
-    setDateRanges(json);
-    console.log(json)
-}
-
-  const addCycle = async (start, end) => {
-    const url = `http://localhost:3001/api/addCycle`;
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'auth-token': localStorage.getItem('token')
-        },
-        body: JSON.stringify({ startDate: start, endDate: end })
-    });
-    const cycle = await response.json();
-   const newDateRange = {
-        startDate:start,
-        endDate: end,
-      };
-    const updatedDateRanges = dateRanges.concat(newDateRange);
-    // setDateRanges(dateRanges.concat(cycle))
-    setDateRanges(updatedDateRanges)
-    console.log("Adding a new Cycle:", cycle)
-}
-
-useEffect(() => {
-  if(localStorage.getItem('token')){
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
       getCycles()
-  }
-  else{
+    }
+    else {
       // navigate('/login')
-  }
-}, [])
+    }
+  }, [])
 
   const onDateChange = (newDates) => {
     const formattedDates = newDates.map((date) => {
       const year = date.getFullYear();
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const day = String(date.getDate()).padStart(2, '0');
-      
+
       return `${year}-${month}-${day}`;
     });
-  
+
     setSelectedDates(newDates);
 
     // Concatenate the newly selected date range to the existing dateRanges

@@ -309,4 +309,22 @@ form{
 .selected-date-range {
     background-color: yellow; /* Add your preferred highlight style */
   }
+
+  .shipping-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .product-image {
+    width: 500px; /* Adjust the width as needed */
+    margin-right: 20px; /* Adjust the margin as needed */
+  }
+  
+  .product-details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  
   
