@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Cycle = require('../models/Cycle');
+const Product=require('../models/Products')
 const fetchuser = require("../middleware/fetchUser")
 const { validationResult, body } = require('express-validator');
 
@@ -41,5 +42,19 @@ router.post('/addCycle', [
     }
 }
 );
+
+router.get('/fetchMyProducts', fetchuser,async (req, res)=>{
+    try {
+        const products = await Product.find({ user: req.user });
+        if (products) {
+            res.json(products)
+        }
+    } catch (error) {
+        console.error(error.message)
+        res.status(400).send("Internal Server Error.");
+    }
+})
+
+
 
 module.exports = router

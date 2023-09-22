@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import UserContext from '../context/User/UserContext'
 
 function Navbar() {
+    const context =useContext(UserContext)
+    const {userInfo, setUserInfo}=context
   return (
     <div>
        <section>
@@ -22,6 +25,9 @@ function Navbar() {
 
                     </li>
                     <li><Link to="/Tracker">Tracker</Link></li>
+                    
+                    {/* <li style={{display:(userInfo.role==="Customer")?'none': '' }}><Link to="/MyProducts">My Products</Link></li> */}
+
                     {/* <li><Link to="">Discover</Link></li> */}
                     {/* <li><Link to="">About Us</Link></li>
                     <li><Link to="">Contact Us</Link></li> */}
