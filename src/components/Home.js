@@ -4,9 +4,12 @@ import '../css/style.css'
 import '../css/utilities.css'
 import WhyUs from './WhyUs'
 import ProductContext from '../context/Product/ProductContext'
+import UserContext from '../context/User/UserContext'
 function Pharmacy() {
     const context = useContext(ProductContext)
-    const { setSrc, setProdName, setProdDesc, setProdCost, login} = context
+    const context1 = useContext(UserContext)
+    const { setSrc, setProdName, setProdDesc, setProdCost, } = context
+    const{login}=context1
     const OfferedProducts = [
         {
             src: "https://img.icons8.com/ios-filled/50/pills.png",
@@ -117,10 +120,10 @@ function Pharmacy() {
 
             <section className="d-flex d-col featured-products">
                 <h2>Featured Products</h2>
-                <div class="row row-cols-4">
+                <div className="row row-cols-4">
 
                     {featuredProducts.map((product) => {
-                        return <div class="col">
+                        return <div className="col">
                             <div className="card border-primary mb-3" style={{ width: "18rem" }}>
                                 <img src={product.src} className="card-img-top" alt="..." />
                                 <div className="card-body">
