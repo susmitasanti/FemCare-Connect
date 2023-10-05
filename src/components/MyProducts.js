@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import '../css/Login.css'
 
 function MyProducts() {
     const [myProducts, setMyProducts] = useState([]);
@@ -23,8 +25,11 @@ function MyProducts() {
 
     return (
         <div>
+
             <section className="d-flex d-col featured-products">
-            <div className="row">
+                <Link to='/AddProduct' ><button className='button-feature'>Add Product</button></Link>
+
+                <div className="row">
                     {myProducts.map((product) => (
                         <div className="col-md-3" key={product._id}>
                             <div className="card border-primary mb-4" style={{ width: "100%", height: "100%" }}>
@@ -32,7 +37,7 @@ function MyProducts() {
                                 <div className="card-body">
                                     <h5 className="card-title">{product.prodName}</h5>
                                     <p className="card-text">{product.description ? product.description.slice(0, 100) : ""}<br />{product.price}</p>
-                                    
+
                                 </div>
                             </div>
                         </div>

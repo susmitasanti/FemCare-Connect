@@ -41,7 +41,17 @@ function Shipping() {
 			return
 		}
 
-		const data = await fetch('http://localhost:3001/payment/createOrder', { method: 'POST' }).then((t) =>
+		const data = await fetch('http://localhost:3001/payment/createOrder', { 
+      method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+               prod_cost:prodCost
+            })
+  
+  
+  }).then((t) =>
 			t.json()
 		)
 
@@ -52,13 +62,13 @@ function Shipping() {
 			currency: data.currency,
 			amount: data.amount.toString(),
 			order_id: data.id,
-			name: 'Donation',
-			description: 'Thank you for nothing. Please give us some money',
+			name: 'FemCare',
+			description: 'Thank you!',
 			// image: 'http://localhost:1337/logo.svg',
 			handler: function (response) {
-				alert(response.razorpay_payment_id)
-				alert(response.razorpay_order_id)
-				alert(response.razorpay_signature)
+				// alert(response.razorpay_payment_id)
+				// alert(response.razorpay_order_id)
+				// alert(response.razorpay_signature)
 			},
 			prefill: {
 				name,

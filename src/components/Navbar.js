@@ -31,6 +31,8 @@ function Navbar() {
                     <li><Link to="/Tracker">Tracker</Link></li>
                     
                     <li><Link to="/MyProducts">My Products</Link></li>
+                  <li>  <Link to='/login'><i class="bi bi-box-arrow-in-right"></i> Login</Link></li>
+
 
                     {/* <li><Link to="">Discover</Link></li> */}
                     {/* <li><Link to="">About Us</Link></li>
@@ -38,11 +40,7 @@ function Navbar() {
                     
                 </ul>
                 <div className="d-flex align-items-center">
-                    <div id="search">
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                        <input type="search" placeholder="search products & more" />
-                    </div>
-                    <h2>Login</h2>
+                    
                 </div>
             </div>
         </nav>

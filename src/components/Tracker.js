@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import CycleCalendar from './CycleCalendar';
-import '../css/style.css'
+import '../css/Tracker.css'
+
 
 
 function Tracker() {
@@ -13,13 +14,18 @@ function Tracker() {
   };
 
   return (
-    <>
-    <div align='center' className='tracker' style={{margin:'100px'}}>
-    <h1>Menstrual Cycle Tracker</h1>
-      <CycleCalendar addCycle={addCycle} /> 
-    </div>
-    </>
-  )
+    <div className='background-image'>
+      <div className='container'>
+     <div
+        align='center'
+        className='tracker'// Apply the background-image class here
+        style={{ margin: '100px' }}
+      >
+        <h1>Menstrual Cycle Tracker</h1>
+        <CycleCalendar addCycle={addCycle} />
+      </div>
+      </div>
+    </div>  )
 }
 
 export default Tracker

@@ -12,7 +12,7 @@ var instance = new Razorpay({
 
 router.post('/createOrder', (req, res)=>{
     var options = {
-        amount: 100*100,  // amount in the smallest currency unit
+        amount: req.body.prod_cost*100,  // amount in the smallest currency unit
         currency: "INR",
         receipt: "order_rcptid_11"
       };

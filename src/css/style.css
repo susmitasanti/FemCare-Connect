@@ -329,8 +329,10 @@ form{
     width: 150px; /* Adjust the width as needed */
 }
 
+ .highlighted-date { 
+    background-color: yellow; 
+    color: red; 
+    font-weight: bold; 
+    border: 1px solid black; 
+ }
 
-  
-  
-  
-  
