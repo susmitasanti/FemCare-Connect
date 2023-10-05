@@ -28,9 +28,11 @@ function Login() {
 
         if (json.success) {
             localStorage.setItem('token', json.authtoken)
+            console.log(json)
+
             // props.showAlert("success", "Successfully Logged In!!")
             setLogin(true)
-            setUserInfo(json)
+            setUserInfo(json.user)
             navigate("/Home")
 
         }
@@ -46,7 +48,7 @@ function Login() {
                     <input className="form-control" type="text" placeholder="Username" aria-label="default input example" id="username" name="username" value={credentials.username} onChange={onChange} required />
                     <input className="form-control" type="text" placeholder="Role" aria-label="default input example" id="role" name="role" value={credentials.role} onChange={onChange} required />
                     <input className="form-control" type="password" placeholder="Password" aria-label="default input example" id="password" name="password" value={credentials.password} onChange={onChange} required />
-                    <button type="submit" className="btn btn-primary" >Submit</button>
+                    <button type="submit" className="btn btn-success" >Submit</button>
                 </form>
             </div>
         </div>
@@ -54,3 +56,5 @@ function Login() {
 }
 
 export default Login
+
+

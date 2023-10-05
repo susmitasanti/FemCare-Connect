@@ -12,6 +12,8 @@ import CycleState from './context/Cycle/CycleState';
 import UserState from './context/User/UserState';
 import AddProduct from './components/AddProduct';
 import MyProducts from './components/MyProducts';
+import RazorpayPayment from './components/RazorpayPayment';
+import CategoryState from './context/Category/CategoryState';
 
 
 
@@ -21,13 +23,14 @@ function App() {
   return (
     <>
     <UserState>
+      <CategoryState>
     <CycleState>
     <ProductState>
       <BrowserRouter>
-        <Navbar />
+        <Navbar /> 
         <br /><br /><br /><br /><br />
         {/* <QR/> */}
-        <Routes>
+         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/Home' element={<Home />}></Route>
           <Route path='/Tracker' element={<Tracker />}></Route>
@@ -37,18 +40,15 @@ function App() {
           <Route path='/Shipping' element={<Shipping/>}></Route>
           <Route path='/AddProduct' element={<AddProduct/>}></Route>
           <Route path='/MyProducts' element={<MyProducts/>}></Route>
+          <Route path='/s' element={<RazorpayPayment/>}></Route>
 
-
-
-
-
-
-
-        </Routes>
-      </BrowserRouter>
+        </Routes> 
+       </BrowserRouter>
       </ProductState>
       </CycleState>
+      </CategoryState>
       </UserState>
+
     </>
   );
 }

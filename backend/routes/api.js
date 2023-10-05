@@ -5,6 +5,9 @@ const Product=require('../models/Products')
 const fetchuser = require("../middleware/fetchUser")
 const { validationResult, body } = require('express-validator');
 
+
+
+//Customer Routes
 router.get('/fetchallCycles', fetchuser, async (req, res) => {
     try {
         const cycles = await Cycle.find({ user: req.user });
@@ -43,6 +46,7 @@ router.post('/addCycle', [
 }
 );
 
+//Pharmacy Routes
 router.get('/fetchMyProducts', fetchuser,async (req, res)=>{
     try {
         const products = await Product.find({ user: req.user });
@@ -50,6 +54,26 @@ router.get('/fetchMyProducts', fetchuser,async (req, res)=>{
             res.json(products)
         }
     } catch (error) {
+        console.error(error.message)
+        res.status(400).send("Internal Server Error.");
+    }
+})
+
+router.get('/fetchAllProducts', async(req, res)=>{
+    try{
+        const products = await Product.find();
+        res.json(products)
+    }catch (error) {
+        console.error(error.message)
+        res.status(400).send("Internal Server Error.");
+    }
+})
+
+router.get('/fetchSelectedCategory', async(req, res)=>{
+    try{
+        const products = await Product.find({category: req.query.category});
+        res.json(products)
+    }catch (error) {
         console.error(error.message)
         res.status(400).send("Internal Server Error.");
     }

@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 function AddProduct() {
     const navigate = useNavigate()
-    const [credentials, setCredentials] = useState({ prodName: "", description: "", price: "" })
+    const [credentials, setCredentials] = useState({ prodName: "", description: "", price: "", category:"" })
     const [selectedImage, setSelectedImage] = useState(null);
 
     const onChange = (event) => {
@@ -30,6 +30,7 @@ function AddProduct() {
         formData.append('prodName', credentials.prodName);
         formData.append('description', credentials.description);
         formData.append('price', credentials.price);
+        formData.append('category', credentials.category);
         formData.append('image', selectedImage);
     
         try {
@@ -45,10 +46,12 @@ function AddProduct() {
                 const product = await response.json();
                 console.log('Product created:', product);
                 // Redirect to a success page or navigate as needed
-                navigate('/success'); // Use history to navigate
+                setCredentials({ prodName: "", description: "", price: "", category:"" }); 
+                setSelectedImage(null)// Use history to navigate
             } else {
                 console.error('Error:', response.statusText);
             }
+
         } catch (error) {
             console.error('Error:', error);
         }
@@ -93,6 +96,17 @@ function AddProduct() {
                         onChange={onChange}
                         required
                     />
+                    <select name="category" id="category"
+        value={credentials.category}
+        onChange={onChange}
+      >
+        <option value="">Select Category</option>
+        <option value="Medicines">Medicines</option>
+        <option value="Menstrual Cups">Menstrual Cups</option>
+        <option value="Sanitary Napkins">Sanitary Napkins</option>
+        <option value="Tampons">Tampons</option>
+
+      </select>
                     <label htmlFor="image">Product Image:</label>
                     <input type="file" name="image" accept="image/*" onChange={handleImageChange} required />
 

@@ -18,6 +18,10 @@ const ProductSchema = new Schema({
         type: String,
         required: true,
     },
+    category:{
+        type: String,
+        required: true,
+    },
     image: {
         // data: Buffer,       // Store the image binary data
         // contentType: String, // Store the content type of the image (e.g., 'image/jpeg')

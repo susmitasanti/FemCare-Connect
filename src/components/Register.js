@@ -4,13 +4,13 @@ import { useState } from 'react'
 
 
 function Register() {
-    const [credentials, setCredentials]=useState({name:"", phone:"",  role:"", username:"", password:""})
-    const navigate=useNavigate()
+    const [credentials, setCredentials] = useState({ name: "", phone: "", role: "", username: "", password: "" })
+    const navigate = useNavigate()
     const onChange = (event) => {
         setCredentials({ ...credentials, [event.target.name]: event.target.value })
     }
 
-    
+
     const handleSubmit = async (event) => {
         event.preventDefault()
         const url = `http://localhost:3001/auth/createUser`;
@@ -19,7 +19,7 @@ function Register() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name: credentials.name, phone: credentials.phone, role: credentials.role, username: credentials.username,  password:credentials.password})
+            body: JSON.stringify({ name: credentials.name, phone: credentials.phone, role: credentials.role, username: credentials.username, password: credentials.password })
         });
         const json = await response.json();
         console.log(json)
@@ -35,21 +35,21 @@ function Register() {
         }
     }
 
-  return (
-    <div>
-      <div className='container' style={{margin:'100px'}}>
-            <form onSubmit={handleSubmit}>
-            <input className="form-control" type="text" placeholder="Name" aria-label="default input example" id="name" name="name" value={credentials.name} onChange={onChange} required/>
-            <input className="form-control" type="number" placeholder="Phone No." aria-label="default input example" id="phone" name="phone" value={credentials.phone} onChange={onChange} maxLength={10} required/>
-            <input className="form-control" type="text" placeholder="Role" aria-label="default input example" id="role" name="role" value={credentials.role} onChange={onChange} required/>
+    return (
+        <div>
+            <div className='container' style={{ margin: '100px' }}>
+                <form onSubmit={handleSubmit}>
+                    <input className="form-control" type="text" placeholder="Name" aria-label="default input example" id="name" name="name" value={credentials.name} onChange={onChange} required />
+                    <input className="form-control" type="number" placeholder="Phone No." aria-label="default input example" id="phone" name="phone" value={credentials.phone} onChange={onChange} maxLength={10} required />
+                    <input className="form-control" type="text" placeholder="Role" aria-label="default input example" id="role" name="role" value={credentials.role} onChange={onChange} required />
 
-      <input className="form-control" type="text" placeholder="Username" aria-label="default input example" id="username" name="username" value={credentials.username} onChange={onChange} required/>
-      <input className="form-control" type="password" placeholder="Password" aria-label="default input example" id="password" name="password" value={credentials.password} onChange={onChange} required/>
-      <button type="submit" className="btn btn-primary" >Submit</button>
-      </form>
-      </div>
-    </div>
-  )
+                    <input className="form-control" type="text" placeholder="Username" aria-label="default input example" id="username" name="username" value={credentials.username} onChange={onChange} required />
+                    <input className="form-control" type="password" placeholder="Password" aria-label="default input example" id="password" name="password" value={credentials.password} onChange={onChange} required />
+                    <button type="submit" className="btn btn-primary" >Submit</button>
+                </form>
+            </div>
+        </div>
+    )
 }
 
 export default Register

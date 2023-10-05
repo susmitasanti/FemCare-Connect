@@ -82,7 +82,7 @@ router.post('/login', [
                         //creates the token
                         const token = jwt.sign(data, JWT_SECRET);
                         success = true;
-                        res.json({ success, authtoken: token });
+                        res.json({ success, authtoken: token, user });
                     }
                     else {
                         success = false;
@@ -111,5 +111,15 @@ router.post('/login', [
 
 }
 );
-
 module.exports = router
+
+
+
+
+
+
+
+
+
+
+

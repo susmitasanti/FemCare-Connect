@@ -324,7 +324,13 @@ form{
     display: flex;
     flex-direction: column;
   }
+  /* style.css */
+.custom-buy-button {
+    width: 150px; /* Adjust the width as needed */
+}
 
+
+  
   
   
   

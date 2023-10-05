@@ -1,10 +1,14 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import UserContext from '../context/User/UserContext'
+import CategoryContext from '../context/Category/CategoryContext'
 
 function Navbar() {
     const context =useContext(UserContext)
-    const {userInfo, setUserInfo}=context
+    const context1=useContext(CategoryContext)
+    const {userInfo}=context
+    const {getSelectedCategory, selectedCategory, setSelectedCategory}=context1
+
   return (
     <div>
        <section>
@@ -12,21 +16,21 @@ function Navbar() {
             <h2><span><i className="fa-solid fa-prescription-bottle-medical"></i></span>FemCare</h2>
             <div className="d-flex ">
                 <ul className="d-flex nav-links align-items-center">
-                    <li><Link to="/Home">Home</Link></li>
+                    <li><Link to="/Home" onClick={()=>setSelectedCategory(null)}>Home</Link></li>
                     <li className="dropdown">
                         <Link to="#">Categories</Link>
                         <ul className="dropdown-category">
-                            <li><Link to="#">Medicine</Link></li>
-                            <li><Link to="/MenstrualCups">Menstrual Cups</Link></li>
-                            <li><Link to="#">Sanitary Napkins</Link></li>
-                            <li><Link to="">Tampons</Link></li>
+                        <li><button onClick={()=>setSelectedCategory(null)}>All</button></li>
+                            <li><button onClick={()=>setSelectedCategory("Medicines")}>Medicines</button></li>
+                            <li><button onClick={()=>setSelectedCategory("Menstrual Cups")}>Menstrual Cups</button></li>
+                            <li><button onClick={()=>setSelectedCategory("Sanitary Napkins")}>Sanitary Napkins</button></li>
+                            <li><button onClick={()=>setSelectedCategory("Tampons")}>Tampons</button></li>
                         </ul>
-                        
-
+                    
                     </li>
                     <li><Link to="/Tracker">Tracker</Link></li>
                     
-                    {/* <li style={{display:(userInfo.role==="Customer")?'none': '' }}><Link to="/MyProducts">My Products</Link></li> */}
+                    <li><Link to="/MyProducts">My Products</Link></li>
 
                     {/* <li><Link to="">Discover</Link></li> */}
                     {/* <li><Link to="">About Us</Link></li>
