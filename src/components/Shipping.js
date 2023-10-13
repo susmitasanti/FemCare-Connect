@@ -50,7 +50,6 @@ function Shipping() {
                prod_cost:prodCost
             })
   
-  
   }).then((t) =>
 			t.json()
 		)

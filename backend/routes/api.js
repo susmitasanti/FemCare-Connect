@@ -5,8 +5,6 @@ const Product=require('../models/Products')
 const fetchuser = require("../middleware/fetchUser")
 const { validationResult, body } = require('express-validator');
 
-
-
 //Customer Routes
 router.get('/fetchallCycles', fetchuser, async (req, res) => {
     try {
