@@ -44,7 +44,6 @@ function MyProducts() {
             setMyProducts(json);
             console.log(json);
         } else {
-            console.log("Pharmacy")
             const url = "http://localhost:3001/api/fetchMyProducts";
             const response = await fetch(url, {
                 method: 'GET',

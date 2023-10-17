@@ -48,6 +48,7 @@ function AddProduct() {
                 // Redirect to a success page or navigate as needed
                 setCredentials({ prodName: "", description: "", price: "", category:"" }); 
                 setSelectedImage(null)// Use history to navigate
+                navigate('/MyProducts')
             } else {
                 console.error('Error:', response.statusText);
             }

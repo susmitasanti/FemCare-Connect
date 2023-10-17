@@ -27,7 +27,7 @@ function Shipping() {
   const context1 = useContext(UserContext);
 
   const [orderId, setOrderId] = useState('');
-  const { src, prodName, prodDesc, prodCost } = context;
+  const { src, prodName, prodDesc, prodCost, addCost, setAddCost } = context;
   const {  userInfo} = context1
 
 

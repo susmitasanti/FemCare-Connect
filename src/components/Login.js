@@ -81,16 +81,16 @@ function Login() {
                         onChange={onChange}
                         required
                     />
-                    <button  type="submit" className='button-feature btn btn-success'>
+                    <button type="submit" className='button-feature btn btn-success'>
                         Submit
                     </button>
                 </form>
-                <br/>
+                <br />
                 <div align="center">
-                Not Registered? <Link to="/register">Register Now!</Link>
+                    Not Registered? <Link to="/register">Register Now!</Link>
+                </div>
             </div>
-            </div>
-          
+
 
         </div>
     );
