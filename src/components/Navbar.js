@@ -28,6 +28,10 @@ function Navbar() {
                                 </ul>
 
                             </li>
+                            {(login === true && userInfo.role === 'Customer') ? (<li><Link to="/AddBlog">Add Blog</Link></li>) : null}
+                            {(login === true && userInfo.role === 'Customer') ? (<li><Link to="/Blogs">Blogs</Link></li>) : null}
+
+
                             {(login === true && userInfo.role === 'Customer') ? (<li><Link to="/Tracker">Tracker</Link></li>) : null}
 
                             {(login === true) ? (<li><Link to="/MyProducts">My Products</Link></li>) : null}

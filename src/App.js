@@ -16,7 +16,10 @@ import RazorpayPayment from './components/RazorpayPayment';
 import CategoryState from './context/Category/CategoryState';
 import Map from './components/Map';
 import ProductContext from './context/Product/ProductContext';
+import AddBlog from './components/AddBlog';
 import { useState } from 'react';
+import NoteState from './context/Blogs/NoteState';
+import Blogs from './components/Blogs'
 
 
 
@@ -24,10 +27,12 @@ function App() {
 
   return (
     <>
+    
     <UserState>
       <CategoryState>
     <CycleState>
     <ProductState>
+      <NoteState>
       <BrowserRouter>
         <Navbar /> 
         <br /><br /><br /><br /><br />
@@ -44,10 +49,15 @@ function App() {
           <Route path='/Shipping' element={<Shipping />}></Route>
           <Route path='/AddProduct' element={<AddProduct />}></Route>
           <Route path='/MyProducts' element={<MyProducts/>}></Route> 
+          <Route path='/AddBlog' element={<AddBlog/>}></Route> 
+          <Route path='/Blogs' element={<Blogs/>}></Route> 
+
+
           {/* /* <Route path='/s' element={<RazorpayPayment/>}></Route> */}
 
         </Routes> 
        </BrowserRouter>
+       </NoteState>
       </ProductState>
       </CycleState>
       </CategoryState>

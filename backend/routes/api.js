@@ -3,6 +3,7 @@ const router = express.Router();
 const Cycle = require('../models/Cycle');
 const Product = require('../models/Products')
 const Cart = require('../models/AddToCart')
+const Notes = require('../models/Notes')
 const fetchuser = require("../middleware/fetchUser")
 const { validationResult, body } = require('express-validator');
 const { findAllByTestId } = require('@testing-library/react');
@@ -187,6 +188,20 @@ router.post('/fetchallnotes', fetchuser, async (req, res) => {
         res.status(400).send("Internal Server Error.");
     }
 });
+
+
+router.post('/fetchnotes', fetchuser, async (req, res) => {
+    try {
+        const notes = await Notes.find();
+        if (notes) {
+            res.json(notes)
+        }
+    } catch (error) {
+        console.error(error.message)
+        res.status(400).send("Internal Server Error.");
+    }
+});
+
 
 // ROUTE 2: Add a new note using POST: "/api/auth/addnote". Login required.
 router.post('/addnote', [

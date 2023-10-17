@@ -1,0 +1,9 @@
+/* App.css */
+body {
+    background-image: url('../../public/images/login.jpg');
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional, for a fixed background */
+    /* Other styling properties here */
+  }
+  
