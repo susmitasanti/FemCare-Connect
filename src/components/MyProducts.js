@@ -147,8 +147,8 @@ function MyProducts() {
 
     useEffect(() => {
         getMyProducts()
-        // const productCosts = myProducts.map(product => product.price);
-        // setAddCost(productCosts);
+        const productCosts = myProducts.map(product => product.price);
+        setAddCost(productCosts);
     }, [myProducts]);
 
     return (

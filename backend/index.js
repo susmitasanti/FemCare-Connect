@@ -51,7 +51,6 @@ app.post('/addProduct', fetchuser, upload.single('image'), async (req, res) => {
       console.error('No file uploaded.');
       return res.status(400).json({ error: 'No file uploaded' });
     }
-
     // Create a new Product document and save it to MongoDB
     product = await Product.create({
       user: req.user,
