@@ -35,8 +35,11 @@ app.use("/MyProducts", express.static("uploads"));
 const Product = require("./models/Products");
 const fetchuser = require("./middleware/fetchUser");
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../frontend', 'build')));
+
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'));
 });
 
 app.use("/auth", require("./routes/auth"));
