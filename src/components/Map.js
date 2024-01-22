@@ -47,13 +47,15 @@ function Map() {
   // Array of gynecologist locations with latitude, longitude, and name
   const gynecologistLocations = [
     {
-      lat: 19.053554, lng: 72.887018, name: 'Gynecologist A'
+      lat: 19.056573, lng: 72.889541, name: 'Gynecologist A'
     },
-    { lat:19.055883, lng: 72.896790, name: 'Gynecologist B' },
-    { lat:19.042566, lng: 72.914825, name: 'Gynecologist C' },
-    { lat:19.056552, lng: 72.889532, name: 'Gynecologist D' },
-    { lat:19.042566, lng: 72.914825, name: 'Gynecologist E' },
-    { lat:19.056566, lng: 72.890581, name: 'Gynecologist F' },
+    { lat:19.042864, lng: 72.914827, name: 'Gynecologist B' },
+    { lat:19.053555, lng: 72.887009, name: 'Gynecologist C' },
+    { lat:19.056553, lng: 72.890400, name: 'Gynecologist D' },
+    { lat:19.047496, lng: 72.874586, name: 'Gynecologist E' },
+    // { lat:19.046283, lng: 72.842670, name: 'Gynecologist F' },
+
+  
     // Add more locations as needed
   ];
 
@@ -84,3 +86,22 @@ function Map() {
 }
 
 export default Map;
+
+//Near Pixolo
+// {
+//   lat: 19.090880, lng: 72.913788, name: 'Gynecologist A'
+// },
+// { lat:19.093265, lng: 72.912952, name: 'Gynecologist B' },
+// { lat:19.090449, lng: 72.907330, name: 'Gynecologist C' },
+// { lat:19.093261, lng: 72.913045, name: 'Gynecologist D' },
+// { lat:19.095297, lng: 72.913895, name: 'Gynecologist E' },
+
+//Near Home
+// {
+//   lat: 19.040306, lng: 72.851998, name: 'Gynecologist A'
+// },
+// { lat:19.039987, lng: 72.854652, name: 'Gynecologist B' },
+// { lat:19.040241, lng: 72.851997, name: 'Gynecologist C' },
+// { lat:19.040388, lng: 72.854811, name: 'Gynecologist D' },
+// { lat:19.043134, lng: 72.856226, name: 'Gynecologist E' },
+// { lat:19.046283, lng: 72.842670, name: 'Gynecologist F' },

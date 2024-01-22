@@ -35,7 +35,7 @@ router.post('/createUser', [
                     password: secPass,
                 })
 
-                data = {
+                const data = {
                     user: user.Id
                 };
                 //This creates a token for the user
@@ -76,36 +76,36 @@ router.post('/login', [
                     //If password matches...
                     if (passwordCompare) {
                         //stores user's id in the object:data
-                        data = {
+                        const data = {
                             user: user._id
                         };
                         //creates the token
                         const token = jwt.sign(data, JWT_SECRET);
-                        success = true;
+                        const success = true;
                         res.json({ success, authtoken: token, user });
                     }
                     else {
-                        success = false;
+                        const success = false;
                         res.status(400).json({ success, error: "Please enter correct credentials." });
                     }
                 }
                 else{
-                success = false;
+                const success = false;
                 res.status(400).json({ success, error: "Please enter correct credentials." });
                 }
             }
             else {
-                success = false;
+                const success = false;
                 res.status(400).json({ success, error: "Please enter correct credentials." });
             }
         }
         catch (error) {
-            success = false;
+            const success = false;
             res.status(400).json({ success, msg: "Internal Server Error." });
         }
     }
     else {
-        success = false;
+        const success = false;
         res.send({ errors: result.array() });
     }
 
