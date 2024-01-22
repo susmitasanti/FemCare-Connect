@@ -5,11 +5,7 @@ import 'react-calendar/dist/Calendar.css';
 function CycleCalendar(props) {
   const [selectedDates, setSelectedDates] = useState([]);
   const [dateRanges, setDateRanges] = useState([]);
-    // { startDate: "2023-09-10", endDate: "2023-09-15" },
-    // { startDate: "2023-09-20", endDate: "2023-09-25" },
-    // { startDate: "2023-08-30", endDate: "2023-09-02" }
   
-
   const getCycles = async () => {
     const url = "http://localhost:3001/api/fetchallCycles"
     const response = await fetch(url, {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../css/Login.css";
 import UserContext from "../context/User/UserContext";
 import ProductContext from "../context/Product/ProductContext";
-import { useNavigate } from "react-router-dom";
+
 function loadScript(src) {
   return new Promise((resolve) => {
     const script = document.createElement("script");
@@ -20,7 +20,6 @@ function loadScript(src) {
 const __DEV__ = document.domain === "localhost";
 
 function MyProducts() {
-  const navigate = useNavigate();
   const context = useContext(UserContext);
   const context1 = useContext(ProductContext);
   const [myProducts, setMyProducts] = useState([]);

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ProductContext from '../context/Product/ProductContext';
 import UserContext from '../context/User/UserContext'
 
@@ -26,8 +26,7 @@ function Shipping() {
   const context = useContext(ProductContext);
   const context1 = useContext(UserContext);
 
-  const [orderId, setOrderId] = useState('');
-  const { src, prodName, prodDesc, prodCost, addCost, setAddCost } = context;
+  const { src, prodName, prodDesc, prodCost } = context;
   const {  userInfo} = context1
 
 

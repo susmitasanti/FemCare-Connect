@@ -7,7 +7,7 @@ function Navbar() {
     const context = useContext(UserContext)
     const context1 = useContext(CategoryContext)
     const { userInfo, login } = context
-    const { getSelectedCategory, selectedCategory, setSelectedCategory } = context1
+    const { setSelectedCategory } = context1
 
     return (
         <div>
@@ -40,24 +40,12 @@ function Navbar() {
 
                             <li>  <Link to='/login'><i class="bi bi-box-arrow-in-right"></i> Login</Link></li>
 
-
-                            {/* <li><Link to="">Discover</Link></li> */}
-                            {/* <li><Link to="">About Us</Link></li>
-                    <li><Link to="">Contact Us</Link></li> */}
-
                         </ul>
                         <div className="d-flex align-items-center">
 
                         </div>
                     </div>
                 </nav>
-                {/* <!-- <div className="content d-flex d-col">
-            <h2></h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci, facilis?</p>
-            <div className="d-flex"><Link to="#Shop Now" className="btn btn-success">Shop Now</Link>
-                <Link to="#Find More" className="btn border-success">Find More</Link>
-            </div>
-        </div> --> */}
             </section>
         </div>
     )

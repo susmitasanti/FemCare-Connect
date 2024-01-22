@@ -8,7 +8,7 @@ import '../css/Login.css'; // Import your custom CSS for styling
 
 function Login() {
     const context = useContext(UserContext);
-    const { login, setLogin, userInfo, setUserInfo } = context;
+    const { setLogin, setUserInfo } = context;
     const [credentials, setCredentials] = useState({
         username: "",
         role: "",

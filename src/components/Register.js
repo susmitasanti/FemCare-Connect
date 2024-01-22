@@ -28,12 +28,8 @@ function Register() {
 
         if (json.success) {
             localStorage.setItem('token', json.authtoken)
-            // props.showAlert("success", "Successfully Logged In!!")
             navigate("/login")
 
-        }
-        else {
-            // props.showAlert("danger", "Please enter valid credentials.")
         }
     }
 
