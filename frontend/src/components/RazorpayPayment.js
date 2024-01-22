@@ -7,7 +7,7 @@ function RazorpayPayment() {
       // Function to create a new orderId
       const createOrderId = async () => {
         try {
-          const response = await fetch('http://localhost:3001/payment/createOrder', {
+          const response = await fetch(`${process.env.REACT_APP_BACKEND_BASE_URL}payment/createOrder`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

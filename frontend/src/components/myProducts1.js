@@ -31,7 +31,7 @@ function MyProducts() {
 
         if (userInfo.role === 'Customer') {
             console.log(userInfo)
-            const url = "http://localhost:3001/api/fetchMyCart";
+            const url = `${process.env.REACT_APP_BACKEND_BASE_URL}api/fetchMyCart`;
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {
@@ -43,7 +43,7 @@ function MyProducts() {
             setMyProducts(json);
             console.log(json);
         } else {
-            const url = "http://localhost:3001/api/fetchMyProducts";
+            const url = `${process.env.REACT_APP_BACKEND_BASE_URL}api/fetchMyProducts`;
             const response = await fetch(url, {
                 method: 'GET',
                 headers: {
@@ -69,7 +69,7 @@ function MyProducts() {
         }
 
         try {
-            const response = await fetch('http://localhost:3001/payment/createOrder', {
+            const response = await fetch(`${process.env.REACT_APP_BACKEND_BASE_URL}payment/createOrder`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -115,7 +115,7 @@ function MyProducts() {
     }
 
     const deleteProduct = async (productId) => {
-        const response = await fetch('http://localhost:3001/api/deleteProduct', {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_BASE_URL}api/deleteProduct`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ function MyProducts() {
     }
 
     const deleteAll = async () => {
-        const response = await fetch(`http://localhost:3001/api/deleteAll?userId=${userInfo._id}`, {
+        const response = await fetch(`${process.env.REACT_APP_BACKEND_BASE_URL}api/deleteAll?userId=${userInfo._id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

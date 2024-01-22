@@ -7,7 +7,7 @@ function CycleCalendar(props) {
   const [dateRanges, setDateRanges] = useState([]);
   
   const getCycles = async () => {
-    const url = "http://localhost:3001/api/fetchallCycles"
+    const url = `${process.env.REACT_APP_BACKEND_BASE_URL}api/fetchallCycles`
     const response = await fetch(url, {
         method: 'GET',
         headers: {
@@ -21,7 +21,7 @@ function CycleCalendar(props) {
 }
 
   const addCycle = async (start, end) => {
-    const url = `http://localhost:3001/api/addCycle`;
+    const url = `${process.env.REACT_APP_BACKEND_BASE_URL}api/addCycle`;
     const response = await fetch(url, {
         method: 'POST',
         headers: {

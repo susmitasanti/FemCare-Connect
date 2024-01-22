@@ -22,7 +22,7 @@ function Login() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const url = `http://localhost:3001/auth/login`;
+        const url = `${process.env.REACT_APP_BACKEND_BASE_URL}auth/login`;
         const response = await fetch(url, {
             method: 'POST',
             headers: {

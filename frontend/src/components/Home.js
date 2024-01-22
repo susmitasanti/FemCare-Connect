@@ -38,7 +38,8 @@ function Pharmacy(props) {
   ];
 
   const getAllProducts = async () => {
-    const url = "http://localhost:3001/api/fetchAllProducts";
+    const url = `${process.env.REACT_APP_BACKEND_BASE_URL}api/fetchAllProducts`;
+    console.log(url)
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -53,7 +54,7 @@ function Pharmacy(props) {
 
   const addtoCart = async (productId) => {
     if (login === true) {
-      const url = "http://localhost:3001/api/addtoCart";
+      const url = `${process.env.REACT_APP_BACKEND_BASE_URL}api/addtoCart`;
       const response = await fetch(url, {
         method: "POST",
         headers: {

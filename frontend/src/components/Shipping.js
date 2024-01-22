@@ -40,7 +40,7 @@ function Shipping() {
 			return
 		}
 
-		const data = await fetch('http://localhost:3001/payment/createOrder', { 
+		const data = await fetch(`${process.env.REACT_APP_BACKEND_BASE_URL}payment/createOrder`, { 
       method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -15,7 +15,7 @@ function Register() {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        const url = `http://localhost:3001/auth/createUser`;
+        const url = `${process.env.REACT_APP_BACKEND_BASE_URL}auth/createUser`;
         const response = await fetch(url, {
             method: 'POST',
             headers: {
