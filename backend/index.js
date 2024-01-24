@@ -35,9 +35,6 @@ app.use("/MyProducts", express.static("uploads"));
 const Product = require("./models/Products");
 const fetchuser = require("./middleware/fetchUser");
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, '../frontend', 'build')));
-
 app.get('/', function (req, res) {
   res.send("Hello World")
 });
