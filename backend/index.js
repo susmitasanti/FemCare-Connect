@@ -17,7 +17,7 @@ const multer = require("multer");
 // const storage = multer.memoryStorage(); // Store files in memory as buffers
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "../public/uploads/");
+    cb(null, "../frontend/public/uploads/");
   },
   filename: (req, file, cb) => {
     // Use the original file name with a timestamp to avoid overwriting files with the same name
@@ -51,6 +51,7 @@ app.post("/addProduct", fetchuser, upload.single("image"), async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
     // Create a new Product document and save it to MongoDB
+	console.log("HEYY")
     const product = await Product.create({
       user: req.user,
       prodName: req.body.prodName,
@@ -62,7 +63,7 @@ app.post("/addProduct", fetchuser, upload.single("image"), async (req, res) => {
     console.log(req.file.path);
     res.json(product);
   } catch (error) {
-    console.error("Error:", error);
+    console.log("HEYY-ERROR:", error);
     res.status(500).json({ error: "Server error" });
   }
 });

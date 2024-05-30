@@ -61,7 +61,7 @@ function AddProduct() {
         setSelectedImage(null); // Use history to navigate
         navigate("/MyProducts");
       } else {
-        console.error("Error:", response.statusText);
+        console.error("Heyy-Error:", response.statusText);
       }
     } catch (error) {
       console.error("Error:", error);
