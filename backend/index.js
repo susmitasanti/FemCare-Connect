@@ -42,6 +42,7 @@ app.get('/', function (req, res) {
 app.use("/auth", require("./routes/auth"));
 app.use("/api", require("./routes/api"));
 app.use("/payment", require("./routes/payment"));
+app.use("/maps", require("./routes/hospMapRoutes"))
 
 app.post("/addProduct", fetchuser, upload.single("image"), async (req, res) => {
   try {

@@ -5,8 +5,9 @@ import "leaflet/dist/leaflet.css";
 import locationIconUrl from "../css/location.png";
 import hospitalIconUrl from "../css/hospiloc.png";
 import Classes from "../css/map.css";
+import HospitalCard from "./HospitalCard"; // Import the HospitalCard component
 
-const API_URL = "http://localhost:5000/api/HospMap/search";
+const API_URL = "http://localhost:3001/maps/search";
 
 function LocationMarker({ lat, lon }) {
   const [position, setPosition] = useState(null);
@@ -121,36 +122,51 @@ function HospMap() {
           </div>
         )}
 
-        <MapContainer
-          center={[lat || 0, lon || 0]}
-          zoom={13}
-          scrollWheelZoom={false}
-          style={{ height: "500px", width: "100%" }}
-          className={Classes.leafletcontainer}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          {locations.map((location, index) => (
-            <Marker
-              key={index}
-              position={[location.lat, location.lng]}
-              icon={hospitalIcon}
-            >
-              <Popup>
-                <div>
-                  <h3>{location.name}</h3>
-                  <p>Address: {location.address}</p>
-                  <p>Rating: {location.rating}</p>
-                  <p>Phone: {location.phone}</p>
-                  <p>Website: {location.website}</p>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
-          <LocationMarker lat={lat} lon={lon} />
-        </MapContainer>
+        <div className={Classes.mapAndCards}>
+          <MapContainer
+            center={[lat || 0, lon || 0]}
+            zoom={13}
+            scrollWheelZoom={false}
+            style={{ height: "500px", width: "100%" }}
+            className={Classes.leafletcontainer}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {locations.map((location, index) => (
+              <Marker
+                key={index}
+                position={[location.lat, location.lng]}
+                icon={hospitalIcon}
+              >
+                <Popup>
+                  <div>
+                    <h3>{location.name}</h3>
+                    <p>Address: {location.address}</p>
+                    <p>Rating: {location.rating}</p>
+                    <p>Phone: {location.phone}</p>
+                    <p>Website: {location.website}</p>
+                  </div>
+                </Popup>
+              </Marker>
+            ))}
+            <LocationMarker lat={lat} lon={lon} />
+          </MapContainer>
+
+          <div className={Classes.hospitalCardsContainer}>
+            {locations.map((location, index) => (
+              <HospitalCard
+                key={index}
+                name={location.name}
+                address={location.address}
+                rating={location.rating}
+                phone={location.phone}
+                website={location.website}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

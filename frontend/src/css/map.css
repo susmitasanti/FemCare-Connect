@@ -1,76 +1,109 @@
-.container {
-	width: 80%; /* Adjust the width of the container */
-	margin: 0 auto; /* Center the container */
+/* map.css */
+.location {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
   }
   
+  .container {
+	width: 100%;
+	max-width: 1200px;
+  }
   
   .searchBox {
-	background-color: rgb(216, 236, 253); /* Background color of the search box */
-	padding: 10px; /* Add padding for spacing */
-	border-radius: 5px; /* Add border radius for rounded corners */
-	display: flex; /* Use flexbox for layout */
-	align-items: center; /* Align items vertically */
+	width: 100%;
+	margin-bottom: 20px;
   }
   
   .inputContainer {
-	flex: 1; /* Take up remaining space */
-	display: flex; /* Use flexbox for layout */
-	align-items: center; /* Align items vertically */
+	display: flex;
+	justify-content: center;
   }
   
   .inputContainer input {
-	flex: 1; /* Take up remaining space */
-	padding: 8px; /* Add padding for input */
-	border: 1px solid #ccc; /* Add border */
-	border-radius: 4px; /* Add border radius */
-	font-size: 1rem; /* Set font size */
-  }
-  
-  .selectDropdown {
-	margin-left: 10px; /* Add margin to separate input and select */
-	padding: 0.5rem; /* Add padding */
-	border: 1px solid #ccc; /* Add border */
-	border-radius: 4px; /* Add border radius */
-	font-size: 1rem; /* Set font size */
-  }
-  
-  /* Decrease the size of the map */
-  .leafletcontainer {
-	height: 400px; /* Set the height of the map container */
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
-	transition: box-shadow 0.3s ease; /* Transition for smooth animation */
-	z-index: 1;
-  }
-  
-  .hospitaldetails {
-	background-color: #fff;
+	width: 300px;
 	padding: 10px;
-	margin-top: 10px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	margin-right: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
   }
   
-  .leafletcontainer:hover {
-	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5); /* Adjust shadow on hover */
+  .inputContainer button {
+	padding: 10px 20px;
+	cursor: pointer;
+	background-color: #144c52;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	transition: background-color 0.3s;
   }
   
-  /* Apply styles for dropdown options */
-  .selectDropdown option {
-	background-color: #fff;
-	color: #000;
-	font-size: 1rem;
+  .inputContainer button:hover {
+	background-color: #0f3a3f;
   }
   
-  /* Style for hover effect on dropdown options */
-  .selectDropdown option:hover {
-	background-color: #064248;
-	color: #fff; /* Hover text color */
+  .mapAndCards {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+  }
+  
+  .leafletcontainer {
+	flex: 2;
+	margin-right: 20px;
+  }
+  
+  .hospitalCardsContainer {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow-y: auto;
+	max-height: 500px;
+	padding: 10px;
+  }
+  
+  .hospitalCard {
+	background-color: white;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	padding: 15px;
+	margin-bottom: 15px;
+	transition: box-shadow 0.3s;
+  }
+  
+  .hospitalCard:hover {
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cardTitle {
+	margin-top: 0;
+	margin-bottom: 10px;
+	font-size: 1.25em;
+	color: #333;
+  }
+  
+  .cardDetail {
+	margin: 5px 0;
+	font-size: 0.9em;
+	color: #666;
+  }
+  
+  .cardLink {
+	color: #144c52;
+	text-decoration: none;
+	font-weight: bold;
+  }
+  
+  .cardLink:hover {
+	text-decoration: underline;
   }
   
   .loadingMessage {
 	text-align: center;
 	margin: 20px 0;
-	color: #144c52;
-	font-size: 16px;
-	font-weight: bold;
-	font-family: "Arial", sans-serif;
   }
+  
